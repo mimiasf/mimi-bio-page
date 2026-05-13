@@ -1,0 +1,10 @@
+# Local OS/editor files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Local temp/build output
+dist/
+.cache/
+node_modules/
+

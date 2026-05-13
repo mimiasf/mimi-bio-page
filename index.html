@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mimi | Bio</title>
+    <meta name="description" content="Mimi's personal bio page" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Share+Tech+Mono&family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <video class="page-bg-video" data-page-bg-video autoplay muted loop playsinline hidden></video>
+
+    <main class="shell">
+      <section class="profile" aria-label="Bio card">
+        <div class="banner" data-banner>
+          <video class="banner-video" data-profile-banner-video autoplay muted loop playsinline hidden></video>
+          <div class="banner-glow"></div>
+        </div>
+
+        <div class="profile-main">
+          <img class="avatar" data-avatar alt="Profile avatar" />
+
+          <div class="identity">
+            <div class="name-row">
+              <h1 data-name></h1>
+              <span class="verified" data-verified aria-label="Verified">&check;</span>
+            </div>
+            <p class="tagline" data-tagline></p>
+          </div>
+
+          <div class="stats" data-stats aria-label="Profile stats"></div>
+
+          <p class="bio" data-bio></p>
+
+          <div class="actions">
+            <a class="primary" data-primary target="_blank" rel="noreferrer">
+              <span class="icon">&#9670;</span>
+              <span data-primary-label></span>
+            </a>
+            <button class="secondary" type="button" data-copy="">
+              <span class="icon">&#10697;</span>
+              <span data-copy-label></span>
+            </button>
+          </div>
+
+          <nav class="links" data-links aria-label="Social links"></nav>
+        </div>
+      </section>
+
+      <section class="music" aria-label="Now playing">
+        <div>
+          <span class="label" data-music-label></span>
+          <p data-music-track></p>
+        </div>
+        <label class="volume-control" aria-label="Music volume">
+          <span>Vol</span>
+          <input type="range" min="0" max="100" value="70" data-volume />
+        </label>
+        <button class="play" type="button" aria-label="Toggle playback">
+          <span></span>
+        </button>
+        <audio data-audio></audio>
+      </section>
+    </main>
+
+    <button class="owner-chip" type="button" data-owner-open aria-label="Open owner editor">
+      Owner
+    </button>
+
+    <div class="owner-gate" data-owner-gate hidden>
+      <form class="gate-card" data-gate-form>
+        <button class="icon-button close-gate" type="button" data-gate-close aria-label="Close">x</button>
+        <h2>Owner Access</h2>
+        <p>Enter your page passcode to edit this bio.</p>
+        <label>
+          Passcode
+          <input type="password" data-gate-code autocomplete="current-password" />
+        </label>
+        <button class="primary full" type="submit">Unlock</button>
+      </form>
+    </div>
+
+    <aside class="editor" data-editor hidden aria-label="Owner editor">
+      <div class="editor-head">
+        <div>
+          <span class="label">Owner Menu</span>
+          <h2>Customize Page</h2>
+        </div>
+        <button class="icon-button" type="button" data-editor-close aria-label="Close editor">x</button>
+      </div>
+
+      <div class="editor-scroll">
+        <details open>
+          <summary>Profile</summary>
+          <label>Name<input data-field="name" /></label>
+          <label>Tagline<input data-field="tagline" /></label>
+          <label>Bio<textarea data-field="bio" rows="5"></textarea></label>
+          <label>Avatar URL<input data-field="avatarUrl" /></label>
+          <label>Upload avatar image<input type="file" data-avatar-upload accept="image/*" /></label>
+          <label>Profile banner URL<input data-field="profileBannerUrl" /></label>
+          <label>Upload profile banner<input type="file" data-profile-banner-upload accept="image/*,video/mp4,video/webm,image/gif" /></label>
+          <label>Background GIF / video / image URL<input data-field="bannerUrl" /></label>
+          <label class="check-row"><input type="checkbox" data-field="verified" /> Show verified badge</label>
+        </details>
+
+        <details open>
+          <summary>Buttons</summary>
+          <label>Main button text<input data-field="primaryLabel" /></label>
+          <label>Main button link<input data-field="primaryUrl" /></label>
+          <label>Copy button text<input data-field="copyLabel" /></label>
+          <label>Copied text<input data-field="copyValue" /></label>
+        </details>
+
+        <details>
+          <summary>Stats</summary>
+          <div class="repeat-grid" data-stat-editor></div>
+        </details>
+
+        <details open>
+          <summary>Links</summary>
+          <div class="repeat-grid" data-link-editor></div>
+        </details>
+
+        <details>
+          <summary>Music</summary>
+          <label>Label<input data-field="musicLabel" /></label>
+          <label>Track<input data-field="musicTrack" /></label>
+          <label>Song URL<input data-field="audioUrl" /></label>
+          <label>Upload song<input type="file" data-audio-upload accept="audio/*" /></label>
+          <p class="hint">Uploaded songs are saved in this browser. Use a direct song URL if you want it to work for visitors on another device.</p>
+        </details>
+
+        <details>
+          <summary>Colors</summary>
+          <div class="color-grid">
+            <label>Text<input type="color" data-field="textColor" /></label>
+            <label>Muted<input type="color" data-field="mutedColor" /></label>
+            <label>Hot<input type="color" data-field="hotColor" /></label>
+            <label>Mint<input type="color" data-field="mintColor" /></label>
+            <label>Gold<input type="color" data-field="goldColor" /></label>
+            <label>Blue<input type="color" data-field="blueColor" /></label>
+          </div>
+        </details>
+
+        <details>
+          <summary>Security</summary>
+          <label>Owner passcode<input type="password" data-field="ownerCode" /></label>
+          <p class="hint">This hides the editor on a static page. For a public site, use a real backend login before storing private data.</p>
+        </details>
+      </div>
+
+      <div class="editor-actions">
+        <button class="secondary" type="button" data-reset>Reset</button>
+        <button class="primary" type="button" data-save>Save</button>
+      </div>
+    </aside>
+
+    <div class="toast" role="status" aria-live="polite">Copied</div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
